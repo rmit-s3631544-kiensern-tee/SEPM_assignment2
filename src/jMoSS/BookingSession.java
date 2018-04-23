@@ -33,6 +33,10 @@ public class BookingSession {
 		seats.add(seatid);
 	}
 	
+	public int count(){
+		return seats.size();
+	}
+	
 	public boolean removeSeat(String seatid){
 		return seats.remove(seatid);
 	}
