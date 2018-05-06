@@ -22,6 +22,8 @@ public class UserManager {
 	
 	private ArrayList<User> users;
 	
+	private int userid;
+	
 	public UserManager() {
 		LoadFromDisk();
 	}
@@ -51,13 +53,16 @@ public class UserManager {
 		String name = sc.nextLine();
 		System.out.println("ENTER PASSWORD : ");
 		String password = sc.nextLine();
-		System.out.println("******-- Parsed Users*******");
 		for (User user : users) {
 			if (user.getUsername().equals(name) && user.getPassword().equals(password)) {
-				System.out.println(user.getUserId());
+				userid = user.getUserId();
 				logged_in = true;
 			}
 		}
 		return logged_in;
+	}
+	
+	public int getUserid(){
+		return this.userid;
 	}
 }

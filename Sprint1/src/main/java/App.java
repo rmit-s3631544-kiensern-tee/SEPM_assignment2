@@ -10,9 +10,13 @@ public class App {
 		// TODO: Change this later, for now we can just call getInstance on each manager to run the parsers
 		UserManager user = new UserManager();
 		System.out.println(user.user_input());
+		int userid = user.getUserid();
+		
+		
 		
 //		TheatreManager.getInstance();
-//		BookingManager.getInstance();
+		BookingManager booking = new BookingManager();
+		booking.CreateBooking(userid);
 	}
 
 }
