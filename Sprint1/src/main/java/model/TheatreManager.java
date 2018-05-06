@@ -57,7 +57,7 @@ public class TheatreManager {
 		Gson g = new Gson();
 		
 		try {
-			Theatre[] theatreArray = g.fromJson(new FileReader("resources/SEPM-JMOSS-THEATRES.json"), Theatre[].class);
+			Theatre[] theatreArray = g.fromJson(new FileReader("Sprint1/resources/SEPM-JMOSS-THEATRES.json"), Theatre[].class);
 			theatres = new ArrayList<Theatre>(Arrays.asList(theatreArray));
 		} catch (JsonSyntaxException e) {
 			// TODO Auto-generated catch block
