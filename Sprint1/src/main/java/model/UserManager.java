@@ -21,9 +21,7 @@ public class UserManager {
 	}
 	
 	private ArrayList<User> users;
-	
-	private int userid;
-	
+		
 	public UserManager() {
 		LoadFromDisk();
 	}
@@ -46,23 +44,14 @@ public class UserManager {
 		}
 	}
 	
-	public boolean user_input() {
+	public boolean user_input(String name, String password) {
 		boolean logged_in = false;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("ENTER USERNAME : ");
-		String name = sc.nextLine();
-		System.out.println("ENTER PASSWORD : ");
-		String password = sc.nextLine();
 		for (User user : users) {
 			if (user.getUsername().equals(name) && user.getPassword().equals(password)) {
-				userid = user.getUserId();
 				logged_in = true;
 			}
 		}
 		return logged_in;
 	}
 	
-	public int getUserid(){
-		return this.userid;
-	}
 }
