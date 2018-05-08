@@ -72,10 +72,7 @@ public class TheatreManager {
 		}
 	}
 	
-	public Theatre searchTheatreById() {
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter theatre Id :");
-		int id = scan.nextInt();
+	public Theatre searchTheatreById(int id) {
 		Theatre current = null;
 		for (Theatre theatre : theatres ) {
 			if (id == theatre.getTheatreId()) {
@@ -85,10 +82,7 @@ public class TheatreManager {
 		return current;
 	}
 	
-	public Theatre searchTheatreByName() {
-		Scanner scan = new Scanner(System.in);
-		System.out.print("Enter theatre name :");
-		String name = scan.nextLine();
+	public Theatre searchTheatreByName(String name) {
 		Theatre current = null;
 		for (Theatre theatre : theatres) {
 			if (theatre.getName().equals(name)) {

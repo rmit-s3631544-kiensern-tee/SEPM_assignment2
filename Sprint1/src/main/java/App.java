@@ -15,8 +15,7 @@ public class App {
 		
 		
 //		TheatreManager.getInstance();
-		BookingManager booking = new BookingManager();
-		booking.CreateBooking(userid);
-	}
+//		BookingManager.getInstance()
 
+	}
 }

@@ -31,14 +31,8 @@ public class BookingManager {
 	}
 	
 	private TheatreManager theatre = new TheatreManager();
-	public void CreateBooking(int userid) {
-		int user = userid;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Customer's email :");
-		String customer = sc.nextLine();
-		System.out.println("Enter suburb :");
-		String suburb = sc.nextLine();
-		Theatre current = theatre.searchTheatreByName();  
+	public void CreateBooking(String name) {
+		Theatre current = theatre.searchTheatreByName(name);  
 		System.out.println(current.toString());  // for testing purpose remove later 
 		
 		
