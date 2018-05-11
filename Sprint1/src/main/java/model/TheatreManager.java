@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
@@ -30,34 +31,34 @@ public class TheatreManager {
 		LoadFromDisk();
 		
 		// Temp print for debug. REMOVE LATER
-		System.out.println("******-- Parsed Theatres + Child class Lists*******");
-		for (Theatre theatre : theatres) {
-			System.out.println("Name: "+theatre.getName());
-			System.out.println("ID: "+theatre.getTheatreId());
-			System.out.println("-* Movies: ");
-			for (Movie movie : theatre.getMovies()) {
-				System.out.println("  Name: "+movie.getMovieName());
-				System.out.println("  --* Sessions: ");
-				for (Session session : movie.getSessions()) {
-					System.out.println("    Time: "+session.getSessionTime());
-					System.out.println("    ---* Seats: ");
-					for (Seat seat : session.getSessionSeats()) {
-						System.out.println("       Status: "+seat.getSeatStatus());
-						System.out.println("       Location: "+seat.getSeatLocation());
-						System.out.println("       ------");
-					}
-					System.out.println("    ------");
-				}
-				System.out.println("  ------");
-			}
-		}
+//		System.out.println("******-- Parsed Theatres + Child class Lists*******");
+//		for (Theatre theatre : theatres) {
+//			System.out.println("Name: "+theatre.getName());
+//			System.out.println("ID: "+theatre.getTheatreId());
+//			System.out.println("-* Movies: ");
+//			for (Movie movie : theatre.getMovies()) {
+//				System.out.println("  Name: "+movie.getMovieName());
+//				System.out.println("  --* Sessions: ");
+//				for (Session session : movie.getSessions()) {
+//					System.out.println("    Time: "+session.getSessionTime());
+//					System.out.println("    ---* Seats: ");
+//					for (Seat seat : session.getSessionSeats()) {
+//						System.out.println("       Status: "+seat.getSeatStatus());
+//						System.out.println("       Location: "+seat.getSeatLocation());
+//						System.out.println("       ------");
+//					}
+//					System.out.println("    ------");
+//				}
+//				System.out.println("  ------");
+//			}
+//		}
 	}
 	
 	private void LoadFromDisk() {
 		Gson g = new Gson();
 		
 		try {
-			Theatre[] theatreArray = g.fromJson(new FileReader("resources/SEPM-JMOSS-THEATRES.json"), Theatre[].class);
+			Theatre[] theatreArray = g.fromJson(new FileReader("Sprint1/resources/SEPM-JMOSS-THEATRES.json"), Theatre[].class);
 			theatres = new ArrayList<Theatre>(Arrays.asList(theatreArray));
 		} catch (JsonSyntaxException e) {
 			// TODO Auto-generated catch block
@@ -69,5 +70,25 @@ public class TheatreManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public Theatre searchTheatreById(int id) {
+		Theatre current = null;
+		for (Theatre theatre : theatres ) {
+			if (id == theatre.getTheatreId()) {
+				current = theatre;
+			}
+		}
+		return current;
+	}
+	
+	public Theatre searchTheatreByName(String name) {
+		Theatre current = null;
+		for (Theatre theatre : theatres) {
+			if (theatre.getName().equals(name)) {
+				current = theatre;
+			}
+		}
+		return current;
 	}
 }

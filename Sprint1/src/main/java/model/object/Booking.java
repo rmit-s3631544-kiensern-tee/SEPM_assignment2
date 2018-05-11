@@ -6,6 +6,10 @@ public class Booking {
 		return bookingId;
 	}
 	
+	public void setBookingId(int id) {
+		this.bookingId = id;
+	}
+	
 	private String bookingName;
 	public String getBookingName() {
 		return bookingName;

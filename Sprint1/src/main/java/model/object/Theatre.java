@@ -19,6 +19,10 @@ public class Theatre {
 		return movies;
 	}
 	
+	public String  toString() {
+		return String.format("Id : %d\nName : %s", this.theatreId,this.theatreName);
+	}
+	
 	public ArrayList<Movie> SearchForMovieByName(String query) {
 		ArrayList<Movie> finalList = new ArrayList<Movie>();
 		if (movies != null && movies.size() != 0) {
