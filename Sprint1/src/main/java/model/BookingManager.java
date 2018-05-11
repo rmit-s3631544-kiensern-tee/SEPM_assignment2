@@ -6,7 +6,7 @@ import main.java.model.object.Booking;
 
 public class BookingManager {
 	private static BookingManager _instance;
-	public static BookingManager getInstance() {
+	public static BookingManager GetInstance() {
 		if (_instance == null) {
 			_instance = new BookingManager();
 		}

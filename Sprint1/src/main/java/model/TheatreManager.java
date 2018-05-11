@@ -17,7 +17,7 @@ import main.java.model.object.User;
 
 public class TheatreManager {
 	private static TheatreManager _instance;
-	public static TheatreManager getInstance() {
+	public static TheatreManager GetInstance() {
 		if (_instance == null) {
 			_instance = new TheatreManager();
 		}
@@ -28,36 +28,13 @@ public class TheatreManager {
 	
 	public TheatreManager() {
 		LoadFromDisk();
-		
-		// Temp print for debug. REMOVE LATER
-		System.out.println("******-- Parsed Theatres + Child class Lists*******");
-		for (Theatre theatre : theatres) {
-			System.out.println("Name: "+theatre.getName());
-			System.out.println("ID: "+theatre.getTheatreId());
-			System.out.println("-* Movies: ");
-			for (Movie movie : theatre.getMovies()) {
-				System.out.println("  Name: "+movie.getMovieName());
-				System.out.println("  --* Sessions: ");
-				for (Session session : movie.getSessions()) {
-					System.out.println("    Time: "+session.getSessionTime());
-					System.out.println("    ---* Seats: ");
-					for (Seat seat : session.getSessionSeats()) {
-						System.out.println("       Status: "+seat.getSeatStatus());
-						System.out.println("       Location: "+seat.getSeatLocation());
-						System.out.println("       ------");
-					}
-					System.out.println("    ------");
-				}
-				System.out.println("  ------");
-			}
-		}
 	}
 	
 	private void LoadFromDisk() {
 		Gson g = new Gson();
 		
 		try {
-			Theatre[] theatreArray = g.fromJson(new FileReader("resources/SEPM-JMOSS-THEATRES.json"), Theatre[].class);
+			Theatre[] theatreArray = g.fromJson(new FileReader("src/main/resources/SEPM-JMOSS-THEATRES.json"), Theatre[].class);
 			theatres = new ArrayList<Theatre>(Arrays.asList(theatreArray));
 		} catch (JsonSyntaxException e) {
 			// TODO Auto-generated catch block

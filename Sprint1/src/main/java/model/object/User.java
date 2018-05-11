@@ -10,6 +10,9 @@ public class User {
 	}
 	
 	private String password;
+	public String getPassword() {
+		return password;
+	}
 	
 	private int userId;
 	public int getUserId() {

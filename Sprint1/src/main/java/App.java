@@ -1,16 +1,24 @@
 package main.java;
 
+import main.java.controller.ConsoleController;
+import main.java.controller.ConsoleController.Menu;
 import main.java.model.BookingManager;
 import main.java.model.TheatreManager;
 import main.java.model.UserManager;
+import main.java.view.ConsoleView;
+
+import asg.cliche.Command;
+import asg.cliche.ShellFactory;
+import java.io.IOException;
 
 public class App {
-
 	public static void main(String[] args) {
-		// TODO: Change this later, for now we can just call getInstance on each manager to run the parsers
-		UserManager.getInstance();
-		TheatreManager.getInstance();
-		BookingManager.getInstance();
+		// Init model (Parse Json)
+		UserManager.GetInstance();
+		BookingManager.GetInstance();
+		TheatreManager.GetInstance();
+		
+		// Begin console session
+		ConsoleController.GotoMenu(Menu.LoginMenu);
 	}
-
 }

@@ -2,10 +2,31 @@ package main.java.view;
 
 import java.util.ArrayList;
 
-import main.java.model.object.Movie;
-
 public class ConsoleView {
-	// TODO: Implement
-	// Not 100% sure what will go here yet so I'll just leave it for now. Somehow needs to draw commands from the controller
-	// I'll work out a nice structure for this
+	public void DrawIntroView() {
+		DrawDivider();
+		System.out.println("Movie Plaza Theatre - ABC Cineplex corp.");
+		System.out.println("jMoSS - Java-Based Movie Search System");
+		DrawDivider();
+	}
+	
+	public void DrawDivider() {
+		System.out.println("----------------------------------------");
+	}
+	
+	public void DrawLineBreak(int count) {
+		for (int i = 0; i < count; i++) {
+			System.out.println();
+		}
+	}
+	
+	public void DrawAlert(String alertString) {
+		System.out.println("!-- "+alertString+" --!");
+	}
+	
+	public void DrawTitle(String title) {
+		DrawDivider();
+		System.out.println("jMoSS - "+title);
+		DrawDivider();
+	}
 }

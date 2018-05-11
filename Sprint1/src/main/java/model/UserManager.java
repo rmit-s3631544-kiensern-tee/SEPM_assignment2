@@ -12,7 +12,7 @@ import main.java.model.object.User;
 
 public class UserManager {
 	private static UserManager _instance;
-	public static UserManager getInstance() {
+	public static UserManager GetInstance() {
 		if (_instance == null) {
 			_instance = new UserManager();
 		}
@@ -21,23 +21,24 @@ public class UserManager {
 	
 	private ArrayList<User> users;
 	
+	private User currentUser;
+	public User GetCurrentUser() {
+		return currentUser;
+	}
+	
+	public Boolean IsLoggedIn() {
+		return currentUser != null;
+	}
+	
 	public UserManager() {
 		LoadFromDisk();
-		
-		// Temp print for debug. REMOVE LATER
-		System.out.println("******-- Parsed Users*******");
-		for (User user : users) {
-			System.out.println("Username: "+user.getUsername());
-			System.out.println("ID: "+user.getUserId());
-			System.out.println("Password: HIDDEN");
-		}
 	}
 	
 	private void LoadFromDisk() {
 		Gson g = new Gson();
 		
 		try {
-			User[] userArray = g.fromJson(new FileReader("resources/jMoSS-Users.json"), User[].class);
+			User[] userArray = g.fromJson(new FileReader("src/main/resources/jMoSS-Users.json"), User[].class);
 			users = new ArrayList<User>(Arrays.asList(userArray));
 		} catch (JsonSyntaxException e) {
 			// TODO Auto-generated catch block
@@ -49,5 +50,18 @@ public class UserManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public Boolean VerifyLogin(String username,String password) {
+		for (User user : users) {
+			if (user.getUsername().toLowerCase().equals(username.toLowerCase()) && user.getPassword().equals(password)) {
+				currentUser = user;
+			}
+		}
+		return IsLoggedIn();
+	}
+	
+	public void LogOut() {
+		currentUser = null;
 	}
 }
