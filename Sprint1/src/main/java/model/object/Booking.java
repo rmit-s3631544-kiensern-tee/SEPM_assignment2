@@ -29,4 +29,24 @@ public class Booking {
 	public Seat getSeats() {
 		return seats;
 	}
+	
+	public static void main(String args[]) {
+	boolean PaymentMade = true;
+	String payment;
+	Scanner scan = new Scanner(System.in);
+
+	System.out.println("Payment confirmed?");
+		  
+         payment = scan.nextLine();
+         if(payment.equals("yes"))
+         PaymentMade = true;
+         System.out.println("Payment successful");
+         
+         if(payment.equals("no"))
+         {
+         PaymentMade = false;
+         System.out.println("Payment unsuccessful");
+         }
+	
+   }
 }
