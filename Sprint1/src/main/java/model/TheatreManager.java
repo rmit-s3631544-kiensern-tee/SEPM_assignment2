@@ -25,6 +25,9 @@ public class TheatreManager {
 	}
 	
 	private ArrayList<Theatre> theatres;
+	public ArrayList<Theatre> GetTheatres() {
+		return new ArrayList<Theatre>(theatres);
+	}
 	
 	public TheatreManager() {
 		LoadFromDisk();

@@ -34,7 +34,8 @@ public class MainMenu extends ConsoleView {
 	
 	@Command // Search,
     public void s() {
-		System.out.println("Search Selected");
+		DrawLineBreak(1);
+        ConsoleController.GotoMenu(Menu.TheatreSelectMenu);
     }
 	
 	@Command // Edit,
@@ -48,6 +49,7 @@ public class MainMenu extends ConsoleView {
         DrawLineBreak(1);
         DrawAlert("Logged out");
         DrawLineBreak(1);
+        
         ConsoleController.GotoMenu(Menu.LoginMenu);
     }
 }
