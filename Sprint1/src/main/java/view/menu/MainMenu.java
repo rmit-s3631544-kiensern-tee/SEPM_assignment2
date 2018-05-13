@@ -21,7 +21,7 @@ public class MainMenu extends ConsoleView {
 		DrawLineBreak(1);
 		System.out.println("Select a function:");
 		System.out.println("(s) Search for a movie");
-		System.out.println("(e) Edit a booking");
+		System.out.println("(d) Delete a booking");
 		System.out.println("(l) Logout");
 		DrawLineBreak(1);
 		try {
@@ -37,9 +37,9 @@ public class MainMenu extends ConsoleView {
 		System.out.println("Search Selected");
     }
 	
-	@Command // Edit,
-    public void e() {
-		System.out.println("Edit Selected");
+	@Command // Delete,
+    public void d() {
+		System.out.println("Delete Selected");
     }
 	
 	@Command // Logout,
