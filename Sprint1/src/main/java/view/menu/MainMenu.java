@@ -32,19 +32,19 @@ public class MainMenu extends ConsoleView {
 		}
 	}
 	
-	@Command // Search,
-    public void s() {
+	@Command(name="search", abbrev="s") // Search,
+    public void search() {
 		DrawLineBreak(1);
         ConsoleController.GotoMenu(Menu.TheatreSelectMenu);
     }
 	
-	@Command // Edit,
-    public void e() {
+	@Command(name="edit", abbrev="e") // Edit,
+	public void edit() {
 		System.out.println("Edit Selected");
     }
 	
-	@Command // Logout,
-    public void l() {
+	@Command(name="logout", abbrev="l") // Back, // Logout,
+	public void logout() {
         UserManager.GetInstance().LogOut();
         DrawLineBreak(1);
         DrawAlert("Logged out");

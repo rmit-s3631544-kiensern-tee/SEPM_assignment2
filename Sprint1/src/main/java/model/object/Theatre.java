@@ -23,7 +23,7 @@ public class Theatre {
 		ArrayList<Movie> finalList = new ArrayList<Movie>();
 		if (movies != null && movies.size() != 0) {
 			for (Movie movie : movies) {
-				if (movie.getMovieName().contains(query)) {
+				if (movie.getMovieName().toLowerCase().contains(query.toLowerCase())) {
 					finalList.add(movie);
 				}
 			}

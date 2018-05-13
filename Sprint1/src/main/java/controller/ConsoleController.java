@@ -1,14 +1,18 @@
 package main.java.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import asg.cliche.Shell;
 import asg.cliche.ShellFactory;
+import main.java.model.object.Movie;
 import main.java.model.object.Theatre;
 import main.java.view.ConsoleView;
 import main.java.view.menu.LoginMenu;
 import main.java.view.menu.MainMenu;
-import main.java.view.menu.MovieSelectMenu;
+import main.java.view.menu.MovieQueryMenu;
+import main.java.view.menu.MovieQueryResultsMenu;
+import main.java.view.menu.MovieSessionsMenu;
 import main.java.view.menu.TheatreSelectMenu;
 
 public class ConsoleController {
@@ -18,7 +22,9 @@ public class ConsoleController {
 		LoginMenu,
 		MainMenu,
 		TheatreSelectMenu,
-		MovieSelectMenu
+		MovieQueryMenu,
+		MovieQueryResultsMenu,
+		MovieSessions
 	}
 	public static Menu currentMenu;
 	
@@ -42,12 +48,28 @@ public class ConsoleController {
 				currentView = new TheatreSelectMenu();
 				break;
 			}
-			case MovieSelectMenu: {
+			case MovieQueryMenu: {
 				if (arg == null || arg.getClass() != Theatre.class) {
 					System.out.println("ERROR: Invalid class passed into GotoMenu(Menu.MovieSelectMenu)");
 					break;
 				}
-				currentView = new MovieSelectMenu((Theatre)arg);
+				currentView = new MovieQueryMenu((Theatre)arg);
+				break;
+			}
+			case MovieQueryResultsMenu: {
+				if (arg == null || arg.getClass() != ArrayList.class) {
+					System.out.println("ERROR: Invalid class passed into GotoMenu(Menu.MovieQueryResultsMenu)");
+					break;
+				}
+				currentView = new MovieQueryResultsMenu((ArrayList<Movie>)arg);
+				break;
+			}
+			case MovieSessions: {
+				if (arg == null || arg.getClass() != Movie.class) {
+					System.out.println("ERROR: Invalid class passed into GotoMenu(Menu.MovieQueryResultsMenu)");
+					break;
+				}
+				currentView = new MovieSessionsMenu((Movie)arg);
 				break;
 			}
 			default:

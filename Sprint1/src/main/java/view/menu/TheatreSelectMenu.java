@@ -38,21 +38,21 @@ public class TheatreSelectMenu extends ConsoleView {
 		}
 	}
 	
-	@Command // Search,
-    public void s(int selection) {
+	@Command(name="search", abbrev="s") // Search,
+	public void search(int selection) {
 		DrawLineBreak(1);
 		ArrayList<Theatre> theatres = TheatreManager.GetInstance().GetTheatres();
 		if (selection <= theatres.size() && selection > 0) {
 			Theatre theatre = theatres.get(selection-1);
 			DrawLineBreak(1);
-			ConsoleController.GotoMenu(Menu.MovieSelectMenu,theatre);
+			ConsoleController.GotoMenu(Menu.MovieQueryMenu,theatre);
 		} else {
 			DrawAlert("Invalid selection.");
 		}
     }
 	
-	@Command // Search,
-    public void b() {
+	@Command(name="back", abbrev="b") // Back,
+	public void back() {
 		DrawLineBreak(1);
         ConsoleController.GotoMenu(Menu.MainMenu);
     }

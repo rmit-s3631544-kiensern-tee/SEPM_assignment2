@@ -12,9 +12,9 @@ import main.java.model.object.Movie;
 import main.java.model.object.Theatre;
 import main.java.view.ConsoleView;
 
-public class MovieSelectMenu extends ConsoleView {
+public class MovieQueryMenu extends ConsoleView {
 	private Theatre selectedTheatre;
-	public MovieSelectMenu(Theatre s0) {
+	public MovieQueryMenu(Theatre s0) {
 		selectedTheatre = s0;
 		DrawTitle("Movie session search: "+s0.getName());
 		DrawView();
@@ -35,30 +35,31 @@ public class MovieSelectMenu extends ConsoleView {
 		}
 	}
 	
-	@Command // Search,
-    public void s(String query) {
+	@Command(name="search", abbrev="s") // Search,
+	public void search(String query) {
 		DrawLineBreak(1);
 		ArrayList<Movie> results = selectedTheatre.SearchForMovieByName(query);
 		
 		if (results.size() == 0) {
 			DrawAlert("No results for '"+query+"'. Try again");
 		} else {
-			
+			DrawTitle("Movie session search: "+selectedTheatre.getName());
+			DrawAlert("Results for '"+query+"'");
+			ConsoleController.GotoMenu(Menu.MovieQueryResultsMenu, results);
 		}
     }
 	
-	@Command // List,
-    public void l() {
+	@Command(name="list", abbrev="l") // List,
+	public void list() {
 		DrawLineBreak(1);
-		DrawAlert("All Movies:");
+		DrawTitle("Movie session search: "+selectedTheatre.getName());
+		DrawAlert("All Movies: "+selectedTheatre.getName());
 		ArrayList<Movie> movies = selectedTheatre.getMovies();
-		for (int i = 0; i < movies.size(); i++) {
-			System.out.println("("+(i+1)+") "+movies.get(i).getMovieName());
-		}
+		ConsoleController.GotoMenu(Menu.MovieQueryResultsMenu, movies);
     }
 	
-	@Command // Back,
-    public void b() {
+	@Command(name="back", abbrev="b") // Back,
+	public void back() {
 		DrawLineBreak(1);
         ConsoleController.GotoMenu(Menu.TheatreSelectMenu);
     }

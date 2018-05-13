@@ -12,6 +12,8 @@ import asg.cliche.ShellFactory;
 import java.io.IOException;
 
 public class App {
+	public static final Boolean verbose = true;
+	
 	public static void main(String[] args) {
 		// Init model (Parse Json)
 		UserManager.GetInstance();
@@ -19,6 +21,10 @@ public class App {
 		TheatreManager.GetInstance();
 		
 		// Begin console session
-		ConsoleController.GotoMenu(Menu.LoginMenu);
+		if (verbose) {
+			ConsoleController.GotoMenu(Menu.MainMenu);
+		} else {
+			ConsoleController.GotoMenu(Menu.LoginMenu);
+		}
 	}
 }
