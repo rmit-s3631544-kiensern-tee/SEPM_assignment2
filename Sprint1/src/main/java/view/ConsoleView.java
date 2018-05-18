@@ -14,6 +14,10 @@ public class ConsoleView {
 		System.out.println("----------------------------------------");
 	}
 	
+	public void DrawListDivider() {
+		System.out.println("---");
+	}
+	
 	public void DrawLineBreak(int count) {
 		for (int i = 0; i < count; i++) {
 			System.out.println();

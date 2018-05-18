@@ -21,7 +21,7 @@ public class MainMenu extends ConsoleView {
 		DrawLineBreak(1);
 		System.out.println("Select a function:");
 		System.out.println("(s) Search for a movie");
-		System.out.println("(d) Delete a booking");
+		System.out.println("(b) Lookup a booking");
 		System.out.println("(l) Logout");
 		DrawLineBreak(1);
 		try {
@@ -38,9 +38,9 @@ public class MainMenu extends ConsoleView {
         ConsoleController.GotoMenu(Menu.TheatreSelectMenu);
     }
 	
-	@Command(name="delete", abbrev="d") // Delete,
-    public void delete() {
-		System.out.println("Delete Selected");
+	@Command(name="booking", abbrev="b") // Delete,
+    public void lookup() {
+		ConsoleController.GotoMenu(Menu.BookingLookupMenu);
     }
 	
 	@Command(name="logout", abbrev="l") // Back, // Logout,

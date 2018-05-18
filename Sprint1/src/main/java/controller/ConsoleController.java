@@ -13,6 +13,7 @@ import main.java.model.object.Session;
 import main.java.model.object.Theatre;
 import main.java.view.ConsoleView;
 import main.java.view.menu.BookingCompleteMenu;
+import main.java.view.menu.BookingLookupMenu;
 import main.java.view.menu.BookingPaymentMenu;
 import main.java.view.menu.BookingSeatSelectionMenu;
 import main.java.view.menu.LoginMenu;
@@ -38,7 +39,8 @@ public class ConsoleController {
 		MovieSessionDetails,
 		BookingSeatSelection,
 		BookingPaymentMenu,
-		BookingCompleteMenu
+		BookingCompleteMenu,
+		BookingLookupMenu
 	}
 	public static Menu currentMenu;
 	
@@ -119,6 +121,10 @@ public class ConsoleController {
 					break;
 				}
 				currentView = new BookingCompleteMenu((Booking)arg);
+				break;
+			}
+			case BookingLookupMenu: {
+				currentView = new BookingLookupMenu();
 				break;
 			}
 			default:

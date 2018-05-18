@@ -50,4 +50,13 @@ public class TheatreManager {
 			e.printStackTrace();
 		}
 	}
+	
+	public Theatre GetTheatreById(int id) {
+		for (Theatre theatre : theatres) {
+			if (theatre.getTheatreId() == id) {
+				return theatre;
+			}
+		}
+		return null;
+	}
 }

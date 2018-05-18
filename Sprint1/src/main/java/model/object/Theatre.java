@@ -30,4 +30,13 @@ public class Theatre {
 		}
 		return finalList;
 	}
+	
+	public Movie GetMovieById(int id) {
+		for (Movie movie : movies) {
+			if (movie.getMovieId() == id) {
+				return movie;
+			}
+		}
+		return null;
+	}
 }

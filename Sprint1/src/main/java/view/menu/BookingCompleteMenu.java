@@ -24,6 +24,7 @@ public class BookingCompleteMenu extends ConsoleView {
 		System.out.println("The booking has been created!");
 		System.out.println("Booking details:");
 		DrawLineBreak(1);
+		System.out.println("Booking Id: "+selectedBooking.getBookingId());
 		System.out.println("Theatre: "+BookingManager.GetInstance().GetSelectedTheatre().getName());
 		System.out.println("Movie: "+BookingManager.GetInstance().GetSelectedMovie().getMovieName());
 		System.out.println(String.format("Date: %s", DateHelper.ToDateString(BookingManager.GetInstance().GetSelectedSession().getSessionTime())));

@@ -1,7 +1,18 @@
 package main.java.model;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 
 import main.java.model.object.Booking;
 import main.java.model.object.Movie;
@@ -22,6 +33,8 @@ public class BookingManager {
 	public BookingManager() {
 		pendingBookingSeats = new HashSet<Integer>();
 		bookings = new ArrayList<Booking>();
+		
+		LoadFromDisk();
 	}
 	
 	// Used for storing the current selected theatre in a booking session.
@@ -62,6 +75,40 @@ public class BookingManager {
 		pendingBookingSeats.remove(number);
 	}
 	
+	private void LoadFromDisk() {
+		Gson g = new Gson();
+		
+		try {
+			Booking[] bookingArray = g.fromJson(new FileReader("CountryGSON.json"), Booking[].class);
+			
+			if (bookingArray != null) {
+				bookings = new ArrayList<Booking>(Arrays.asList(bookingArray));
+			}
+		} catch (JsonSyntaxException e) {
+			// TODO Auto-generated catch block
+		} catch (JsonIOException e) {
+			// TODO Auto-generated catch block
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+		}
+	}
+	
+	private void SaveToDisk() {
+		try {
+			Gson gson = new Gson();
+		    String json = gson.toJson(bookings);
+		    FileWriter writer = new FileWriter("CountryGSON.json");
+		    writer.write(json);
+		    writer.close();
+		} catch (JsonSyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public Booking GetBookingById(int id) {
 		for (Booking booking : bookings) {
 			if (booking.getBookingId() == id) {
@@ -69,6 +116,16 @@ public class BookingManager {
 			}
 		}
 		return null;
+	}
+	
+	public ArrayList<Booking> FindBookingsByEmail(String query) {
+		ArrayList<Booking> results = new ArrayList<Booking>();
+		for (Booking booking : bookings) {
+			if (booking.getBookingEmail().toLowerCase().contains(query.toLowerCase())) {
+				results.add(booking);
+			}
+		}
+		return results;
 	}
 	
 	public boolean IsSeatBooked(int sessionId,int seatId,boolean includePendingBookings) {
@@ -123,6 +180,12 @@ public class BookingManager {
 				new ArrayList<Integer>(pendingBookingSeats));
 		
 		bookings.add(newBooking);
+		SaveToDisk();
 		return newBooking;
+	}
+	
+	public void DeleteBooking(Booking theBooking) {
+		bookings.remove(theBooking);
+		SaveToDisk();
 	}
 }

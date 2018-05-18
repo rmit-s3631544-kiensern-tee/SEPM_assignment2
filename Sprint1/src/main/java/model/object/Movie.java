@@ -59,4 +59,13 @@ public class Movie {
 		}
 		return sessionsForDate;
 	}
+	
+	public Session GetSessionById(int id) {
+		for (Session session : sessions) {
+			if (session.getSessionId() == id) {
+				return session;
+			}
+		}
+		return null;
+	}
 }
