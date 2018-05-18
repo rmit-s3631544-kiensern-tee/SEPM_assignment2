@@ -1,13 +1,15 @@
 [
   {
     "theatreName": "West Theatre",
-    "theatreId": "1",
+    "theatreId": 1,
     "movies": [
       {
+        "movieId": 1,
         "movieName": "The Best Movie: 2",
         "sessions": [
           {
-            "sessionTime": 1525372335,
+            "sessionId": 1,
+            "sessionTime": "23-05-18 08:30",
             "sessionSeats": [
               {
                 "seatStatus": 0,
@@ -94,10 +96,12 @@
         ]
       },
       {
+        "movieId": 2,
         "movieName": "Shrek 2",
         "sessions": [
           {
-            "sessionTime": 1525392335,
+            "sessionId": 2,
+            "sessionTime": "23-05-18 11:30",
             "sessionSeats": [
               {
                 "seatStatus": 0,
@@ -184,10 +188,12 @@
         ]
       },
       {
+        "movieId": 3,
         "movieName": "The story of Steve",
         "sessions": [
           {
-            "sessionTime": 1525672335,
+            "sessionId": 3,
+            "sessionTime": "23-05-18 14:00",
             "sessionSeats": [
               {
                 "seatStatus": 0,
@@ -274,10 +280,12 @@
         ]
       },
       {
+        "movieId": 4,
         "movieName": "You know: The best movie yet",
         "sessions": [
           {
-            "sessionTime": 1525375335,
+            "sessionId": 4,
+            "sessionTime": "23-05-18 16:30",
             "sessionSeats": [
               {
                 "seatStatus": 0,
@@ -367,13 +375,15 @@
   },
   {
     "theatreName": "North Theatre",
-    "theatreId": "2",
+    "theatreId": 2,
     "movies": [
       {
+        "movieId": 5,
         "movieName": "The Best Movie: 2",
         "sessions": [
           {
-            "sessionTime": 1525372335,
+            "sessionId": 5,
+            "sessionTime": "23-05-18 08:30",
             "sessionSeats": [
               {
                 "seatStatus": 0,
@@ -460,10 +470,12 @@
         ]
       },
       {
+        "movieId": 6,
         "movieName": "Shrek 2",
         "sessions": [
           {
-            "sessionTime": 1525392335,
+            "sessionId": 6,
+            "sessionTime": "23-05-18 11:30",
             "sessionSeats": [
               {
                 "seatStatus": 0,
@@ -550,10 +562,12 @@
         ]
       },
       {
+        "movieId": 7,
         "movieName": "The story of Steve",
         "sessions": [
           {
-            "sessionTime": 1525672335,
+            "sessionId": 7,
+            "sessionTime": "23-05-18 14:00",
             "sessionSeats": [
               {
                 "seatStatus": 0,
@@ -640,10 +654,12 @@
         ]
       },
       {
+        "movieId": 8,
         "movieName": "You know: The best movie yet",
         "sessions": [
           {
-            "sessionTime": 1525375335,
+            "sessionId": 8,
+            "sessionTime": "23-05-18 16:30",
             "sessionSeats": [
               {
                 "seatStatus": 0,
@@ -733,13 +749,15 @@
   },
   {
     "theatreName": "South Theatre",
-    "theatreId": "3",
+    "theatreId": 3,
     "movies": [
       {
+        "movieId": 9,
         "movieName": "The Best Movie: 2",
         "sessions": [
           {
-            "sessionTime": 1525372335,
+            "sessionId": 9,
+            "sessionTime": "23-05-18 08:00",
             "sessionSeats": [
               {
                 "seatStatus": 0,
@@ -826,10 +844,12 @@
         ]
       },
       {
+        "movieId": 10,
         "movieName": "Shrek 2",
         "sessions": [
           {
-            "sessionTime": 1525392335,
+            "sessionId": 10,
+            "sessionTime": "23-05-18 11:30",
             "sessionSeats": [
               {
                 "seatStatus": 0,
@@ -916,10 +936,12 @@
         ]
       },
       {
+        "movieId": 11,
         "movieName": "The story of Steve",
         "sessions": [
           {
-            "sessionTime": 1525672335,
+            "sessionId": 11,
+            "sessionTime": "23-05-18 14:30",
             "sessionSeats": [
               {
                 "seatStatus": 0,
@@ -1006,10 +1028,12 @@
         ]
       },
       {
+        "movieId": 12,
         "movieName": "You know: The best movie yet",
         "sessions": [
           {
-            "sessionTime": 1525375335,
+            "sessionId": 12,
+            "sessionTime": "23-05-18 17:30",
             "sessionSeats": [
               {
                 "seatStatus": 0,

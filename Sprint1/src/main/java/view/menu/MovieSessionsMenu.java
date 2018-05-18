@@ -16,6 +16,7 @@ import asg.cliche.Command;
 import asg.cliche.ShellFactory;
 import main.java.controller.ConsoleController;
 import main.java.controller.ConsoleController.Menu;
+import main.java.helper.DateHelper;
 import main.java.model.object.Movie;
 import main.java.view.ConsoleView;
 
@@ -29,7 +30,7 @@ public class MovieSessionsMenu extends ConsoleView {
 	
 	public void DrawView() {
 		DrawLineBreak(1);
-		System.out.println("Please select a date to view session time");
+		System.out.println("Please select a date to view session times");
 		DrawLineBreak(1);
 		System.out.println("Functions");
 		System.out.println("(t) Choose today's date");
@@ -99,9 +100,13 @@ public class MovieSessionsMenu extends ConsoleView {
 			return;
 		}
 		
-		System.out.println("Date Selected: "+date);
-		System.out.println("Continue to session selection and booking...");
-		// Continue to next scene
+		if (selectedMovie.HasSessionForDate(date)) {
+			// Continue to next scene
+			ConsoleController.GotoMenu(Menu.MovieSessionList, date);
+		} else {
+			System.out.println(String.format("No sessions for the %s", DateHelper.ToDateString(date)));
+			System.out.println("Please select another date");
+		}
     }
 	
 	@Command(name="menu", abbrev="m") // Back,
