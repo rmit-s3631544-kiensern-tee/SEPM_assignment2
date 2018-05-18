@@ -12,7 +12,7 @@ import asg.cliche.ShellFactory;
 import java.io.IOException;
 
 public class App {
-	public static final Boolean verbose = true;
+	public static final Boolean verbose = false;
 	
 	public static void main(String[] args) {
 		// Init model (Parse Json)
