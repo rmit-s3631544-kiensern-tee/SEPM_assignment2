@@ -79,7 +79,7 @@ public class BookingManager {
 		Gson g = new Gson();
 		
 		try {
-			Booking[] bookingArray = g.fromJson(new FileReader("CountryGSON.json"), Booking[].class);
+			Booking[] bookingArray = g.fromJson(new FileReader("bookings.json"), Booking[].class);
 			
 			if (bookingArray != null) {
 				bookings = new ArrayList<Booking>(Arrays.asList(bookingArray));
@@ -97,7 +97,7 @@ public class BookingManager {
 		try {
 			Gson gson = new Gson();
 		    String json = gson.toJson(bookings);
-		    FileWriter writer = new FileWriter("CountryGSON.json");
+		    FileWriter writer = new FileWriter("bookings.json");
 		    writer.write(json);
 		    writer.close();
 		} catch (JsonSyntaxException e) {
