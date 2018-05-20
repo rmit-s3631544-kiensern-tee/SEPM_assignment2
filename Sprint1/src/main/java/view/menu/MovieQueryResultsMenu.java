@@ -40,7 +40,7 @@ public class MovieQueryResultsMenu extends ConsoleView {
 	public void select(int selection) {
 		DrawLineBreak(1);
 		
-		Movie movie = results.get(selection);
+		Movie movie = results.get(selection-1);
 		// Goto next view
 		ConsoleController.GotoMenu(Menu.MovieSessions, movie);
     }
